@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motu Patlu World Brain Games - NAZ Intelligence</title>
+    <link rel="stylesheet" href="style.css?v=telugu_v1">
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- INTRO / LOGO SCREEN (NAZ Intelligence) -->
+    <div id="intro-screen" class="screen active">
+        <div class="intro-content">
+            <div class="naz-logo-container">
+                <span class="logo-sparkle">✦</span>
+                <h1 class="naz-logo">NAZ</h1>
+                <p class="naz-sub">INTELLIGENCE</p>
+                <p class="naz-ltd">Nafeez pvt.ltd</p>
+            </div>
+            <div class="intro-loader">
+                <div class="loader-bar"></div>
+            </div>
+            <button id="skip-intro" class="btn secondary-btn">Skip Intro</button>
+        </div>
+    </div>
+
+    <!-- MAIN MENU / LOBBY SCREEN -->
+    <div id="menu-screen" class="screen">
+        <!-- Background Music Controller floating -->
+        <div class="music-toggle-container">
+            <button id="music-toggle-btn" class="icon-btn" aria-label="Toggle Music">
+                <span class="music-icon">🎵</span>
+                <span class="music-text">Music Off</span>
+            </button>
+        </div>
+
+        <div class="lobby-container">
+            <!-- Header section -->
+            <header class="lobby-header">
+                <div class="logo-badge">NAZ Intelligence & Nafeez Games Presents</div>
+                <h1 class="main-title">MOTU PATLU WORLD</h1>
+                <p class="subtitle">Nafeez Games - Brain Games for Everyone! (No Age Limit)</p>
+            </header>
+
+            <div class="welcome-box">
+                <div class="welcome-image-container">
+                    <img src="assets/motu_patlu_welcome.png" alt="Motu Patlu Welcome" class="welcome-img">
+                </div>
+                <div class="character-dialog">
+                    <div class="dialog-bubble">
+                        <p id="lobby-dialog">"Arey Patlu! Quick, we need to activate our brains to find the samosas! Let's solve these puzzles!"</p>
+                        <span class="dialog-author">- Motu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Direct Watch Movie Banner -->
+            <div id="lobby-movie-banner" style="background: linear-gradient(90deg, #ff6b6b, #ffd93d); padding: 1.2rem; border-radius: 16px; margin: 0 1.5rem 1.5rem 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4); border: 2px solid #fff; transition: transform 0.2s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2.8rem;">🎬</span>
+                    <div>
+                        <h2 style="color: #000; font-size: 1.5rem; margin: 0; font-weight: 800;">UNSPOKEN LOVE STORY - CARTOON MOVIE</h2>
+                        <p style="color: #111; margin: 4px 0 0 0; font-size: 1rem; font-weight: 600;">Features 🇮🇳 Telugu (తెలుగు) & 🇬🇧 English Voiceovers with Subtitles & Romantic Music</p>
+                    </div>
+                </div>
+                <button class="btn" style="background: #000; color: #ffd93d; font-weight: 800; font-size: 1.1rem; padding: 0.8rem 1.5rem; border-radius: 12px; border: 2px solid #ffd93d; white-space: nowrap;">▶ WATCH NOW</button>
+            </div>
+
+            <!-- Settings / Difficulty Selection -->
+            <section class="settings-section">
+                <h3>Select Difficulty Level:</h3>
+                <div class="difficulty-options">
+                    <button class="difficulty-btn active" data-difficulty="low">Low (Easy)</button>
+                    <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                    <button class="difficulty-btn" data-difficulty="high">High (Expert)</button>
+                </div>
+                <div class="age-badge">👪 Suitable for all ages (Kids & Adults)</div>
+            </section>
+
+            <!-- Game Selection Grid -->
+            <section class="games-grid">
+                <!-- Game 14 (FEATURED MOVIE): Unspoken Love Story Movie -->
+                <div class="game-card" id="card-lovevideo" data-game="lovevideo" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 217, 61, 0.15)); border: 2px solid #ffd93d; box-shadow: 0 8px 25px rgba(255, 217, 61, 0.25); transform: scale(1.02);">
+                    <div class="game-card-icon" style="font-size: 3.5rem;">🎬</div>
+                    <h3 style="color: #ffd93d; font-size: 1.4rem;">Unspoken Love - Cartoon Movie</h3>
+                    <p style="font-size: 1rem; color: #fff;">Watch the 5-minute college love story with both 🇮🇳 Telugu & 🇬🇧 English Voiceovers, Subtitles & Romantic Music!</p>
+                    <span class="play-tag" style="background: #ffd93d; color: #000; font-weight: bold; font-size: 1rem; padding: 6px 16px;">▶ WATCH MOVIE NOW</span>
+                </div>
+
+                <!-- Game 1 -->
+                <div class="game-card" id="card-samosa" data-game="samosa">
+                    <div class="game-card-icon">🥟</div>
+                    <h3>Motu's Samosa Hunt</h3>
+                    <p>Train your memory! Remember where the hot samosas are placed and flip them.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="game-card" id="card-math" data-game="math">
+                    <div class="game-card-icon">🧮</div>
+                    <h3>Patlu's Smart Calculations</h3>
+                    <p>Speed arithmetic and logic equations designed by Patlu to boost focus!</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="game-card" id="card-stroop" data-game="stroop">
+                    <div class="game-card-icon">☕</div>
+                    <h3>Chaiwala's Tea Color Challenge</h3>
+                    <p>Stroop test! Do not get confused by the colors. Test your cognitive speed.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 4 -->
+                <div class="game-card" id="card-scramble" data-game="scramble">
+                    <div class="game-card-icon">🔤</div>
+                    <h3>Ghasitaram's Word Hunt</h3>
+                    <p>Unscramble letters to find words from Furfuri Nagar! Sharpens vocabulary.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 5 -->
+                <div class="game-card" id="card-car" data-game="car">
+                    <div class="game-card-icon">🚗</div>
+                    <h3>NAZ City Car Racer</h3>
+                    <p>Race high speeds through NAZ City highway! Dodge traffic and speed up.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 6 -->
+                <div class="game-card" id="card-bus" data-game="bus">
+                    <div class="game-card-icon">🚌</div>
+                    <h3>NAZ City Bus Simulator</h3>
+                    <p>Drive a passenger bus, pick up passengers, and steer safe on roads.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 7 -->
+                <div class="game-card" id="card-bike" data-game="bike">
+                    <div class="game-card-icon">🏍️</div>
+                    <h3>NAZ City Bike Rider</h3>
+                    <p>Ride a sports motorcycle, dodge barriers, and perform stunts!</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 8 -->
+                <div class="game-card" id="card-archery" data-game="archery">
+                    <div class="game-card-icon">🏹</div>
+                    <h3>NAZ Archery Challenge</h3>
+                    <p>Aim and shoot arrows at moving targets! Tests hand-eye coordination.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 9: Nafeez Tables Challenge -->
+                <div class="game-card" id="card-tables" data-game="tables">
+                    <div class="game-card-icon">✖️</div>
+                    <h3>Nafeez Tables Challenge</h3>
+                    <p>Learn and test multiplication tables speed with Motu and Patlu!</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 10: Spiderman Web-Swinger -->
+                <div class="game-card" id="card-spiderman" data-game="spiderman">
+                    <div class="game-card-icon">🕷️</div>
+                    <h3>Spiderman Web-Swinger</h3>
+                    <p>Swing high over NAZ City rooftops! Tap to release web ropes and dodge barriers.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 11: OG Retro Snake -->
+                <div class="game-card" id="card-snake" data-game="snake">
+                    <div class="game-card-icon">🐍</div>
+                    <h3>OG Retro Snake</h3>
+                    <p>Classic OG snake game! Eat hot samosas to grow longer, don't hit the walls!</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 12: Peddi Platform Jump -->
+                <div class="game-card" id="card-peddi" data-game="peddi">
+                    <div class="game-card-icon">🦘</div>
+                    <h3>Peddi Platform Jump</h3>
+                    <p>Tap to jump and climb moving floating platforms safely to the top!</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+
+                <!-- Game 13: Hulk Smash Challenge -->
+                <div class="game-card" id="card-hulk" data-game="hulk">
+                    <div class="game-card-icon">🤢</div>
+                    <h3>Hulk Smash Challenge</h3>
+                    <p>Smash down concrete barriers in NAZ City! Tap SMASH to destroy walls.</p>
+                    <span class="play-tag">PLAY NOW</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- GAME PLAY SCREEN -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <button id="back-to-menu-btn" class="btn secondary-btn">◀ Back</button>
+            <div class="game-header-brand">
+                <span class="game-header-title">NAZ City</span>
+                <span class="game-header-sub">Nafeez intelligence</span>
+            </div>
+            <div class="game-info">
+                <span class="info-label">Score: <strong id="score-val">0</strong></span>
+                <span class="info-label">Timer: <strong id="timer-val">30s</strong></span>
+                <span class="info-label">Level: <strong id="current-diff">Low</strong></span>
+            </div>
+            <div class="music-toggle-container-game">
+                <button id="music-toggle-btn-game" class="icon-btn">🎵</button>
+            </div>
+        </div>
+
+        <div class="game-content-container">
+            <!-- Guider interaction sidebar -->
+            <aside class="guider-sidebar">
+                <div class="guider-character" id="guider-avatar">
+                    <div class="guider-face">🥟</div>
+                </div>
+                <div class="guider-bubble">
+                    <p id="guider-text">Let's go! Focus carefully!</p>
+                </div>
+            </aside>
+
+            <!-- Play Area -->
+            <main class="play-area">
+                <!-- Sub-game 1: Samosa Memory Match -->
+                <div id="game-samosa" class="sub-game-panel">
+                    <h2 class="game-title">Motu's Samosa Hunt</h2>
+                    <p class="game-inst">Memorize the highlighted plates and click them!</p>
+                    <div class="samosa-grid" id="samosa-grid"></div>
+                </div>
+
+                <!-- Sub-game 2: Patlu's Math Challenge -->
+                <div id="game-math" class="sub-game-panel">
+                    <h2 class="game-title">Patlu's Smart Calculations</h2>
+                    <p class="game-inst">Solve the math equation before time runs out!</p>
+                    <div class="math-question-box">
+                        <div id="math-equation" class="equation">5 + 3 = ?</div>
+                    </div>
+                    <div class="math-options-grid" id="math-options">
+                        <!-- Options filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Sub-game 3: Chaiwala's Color Match -->
+                <div id="game-stroop" class="sub-game-panel">
+                    <h2 class="game-title">Chaiwala's Tea Challenge</h2>
+                    <p class="game-inst">Does the word match the text color?</p>
+                    <div class="stroop-card-box">
+                        <div id="stroop-word" class="stroop-word">RED</div>
+                    </div>
+                    <div class="stroop-actions">
+                        <button id="stroop-btn-no" class="btn danger-btn">❌ No (Different)</button>
+                        <button id="stroop-btn-yes" class="btn success-btn">✅ Yes (Matches)</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 4: Ghasitaram's Scramble -->
+                <div id="game-scramble" class="sub-game-panel">
+                    <h2 class="game-title">Ghasitaram's Word Hunt</h2>
+                    <p class="game-inst">Unscramble the letters to find the word!</p>
+                    <div class="scramble-word-container">
+                        <div id="scramble-scrambled" class="scramble-scrambled-text">OUMT</div>
+                    </div>
+                    <div class="scramble-input-container">
+                        <input type="text" id="scramble-input" placeholder="Type your answer..." autocomplete="off">
+                        <button id="scramble-submit" class="btn success-btn">Submit</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 5: NAZ City Car Racer -->
+                <div id="game-car" class="sub-game-panel">
+                    <h2 class="game-title">NAZ City Car Racer</h2>
+                    <p class="game-inst">Dodge traffic and pick up speed canisters!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="car-canvas" width="400" height="350"></canvas>
+                        <div class="sim-controls">
+                            <button id="car-btn-left" class="btn secondary-btn">◀ Left</button>
+                            <button id="car-btn-horn" class="btn warning-btn horn-btn">📢 HORN</button>
+                            <button id="car-btn-right" class="btn secondary-btn">Right ▶</button>
+                        </div>
+                        <p class="canvas-help-text">Use Left/Right keys or screen buttons to dodge vehicles!</p>
+                    </div>
+                </div>
+
+                <!-- Sub-game 6: NAZ City Bus Simulator -->
+                <div id="game-bus" class="sub-game-panel">
+                    <h2 class="game-title">NAZ City Bus Simulator</h2>
+                    <p class="game-inst">Dodge traffic and pick up passengers at bus stops!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="bus-canvas" width="400" height="350"></canvas>
+                        <div class="sim-controls dashboard-grid">
+                            <!-- Steering wheel and Horn -->
+                            <div class="steering-container">
+                                <div id="bus-steering-wheel" class="steering-wheel">🎡</div>
+                                <div class="steering-buttons">
+                                    <button id="bus-btn-left" class="btn secondary-btn mini-btn">◀ L</button>
+                                    <button id="bus-btn-right" class="btn secondary-btn mini-btn">R ▶</button>
+                                </div>
+                            </div>
+                            <!-- Engine Start/Stop -->
+                            <div class="engine-controls">
+                                <button id="bus-btn-engine" class="btn danger-btn start-stop-btn">START ENGINE</button>
+                                <button id="bus-btn-horn" class="btn warning-btn horn-btn">📢 HORN</button>
+                            </div>
+                            <!-- Gear Box -->
+                            <div class="gear-container">
+                                <span class="dashboard-label">GEAR</span>
+                                <div class="gear-stick">
+                                    <button class="gear-btn active" data-gear="D">D (Drive)</button>
+                                    <button class="gear-btn" data-gear="N">N (Neutral)</button>
+                                    <button class="gear-btn" data-gear="R">R (Reverse)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="canvas-help-text">Steer safe, shift gears, and use the horn on NAZ city roads!</p>
+                    </div>
+                </div>
+
+                <!-- Sub-game 7: NAZ City Bike Rider -->
+                <div id="game-bike" class="sub-game-panel">
+                    <h2 class="game-title">NAZ City Bike Rider</h2>
+                    <p class="game-inst">High speed motorcycle! Dodge barricades and collect gold coins!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="bike-canvas" width="400" height="350"></canvas>
+                        <div class="sim-controls dashboard-grid">
+                            <!-- Handle bars -->
+                            <div class="handlebars-container">
+                                <div id="bike-handlebar" class="handlebars-graphic">➖🏍️➖</div>
+                                <div class="steering-buttons">
+                                    <button id="bike-btn-left" class="btn secondary-btn mini-btn">Lean L</button>
+                                    <button id="bike-btn-right" class="btn secondary-btn mini-btn">Lean R</button>
+                                </div>
+                            </div>
+                            <!-- Speed / Slow -->
+                            <div class="speed-controls">
+                                <button id="bike-btn-speed" class="btn success-btn mini-btn">⚡ SPEED</button>
+                                <button id="bike-btn-slow" class="btn danger-btn mini-btn">🛑 SLOW</button>
+                                <button id="bike-btn-horn" class="btn warning-btn horn-btn">📢 HORN</button>
+                            </div>
+                        </div>
+                        <p class="canvas-help-text">Use Speed/Slow throttle and lean handlebars to perform stunts!</p>
+                    </div>
+                </div>
+
+                <!-- Sub-game 6: NAZ Archery Challenge -->
+                <div id="game-archery" class="sub-game-panel">
+                    <h2 class="game-title">NAZ Archery Challenge</h2>
+                    <p class="game-inst">Hold and release space or click button to shoot target!</p>
+                    <div class="archery-container">
+                        <canvas id="archery-canvas" width="400" height="300"></canvas>
+                        <button id="archery-shoot-btn" class="btn primary-btn">🏹 Release Arrow</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 9: Nafeez Tables Challenge -->
+                <div id="game-tables" class="sub-game-panel">
+                    <h2 class="game-title">Nafeez Tables Challenge</h2>
+                    <p class="game-inst">Complete the multiplication equations!</p>
+                    <div class="math-question-box">
+                        <div id="tables-equation" class="equation">7 × 8 = ?</div>
+                    </div>
+                    <div class="math-options-grid" id="tables-options">
+                        <!-- Options filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Sub-game 10: Spiderman Web-Swinger -->
+                <div id="game-spiderman" class="sub-game-panel">
+                    <h2 class="game-title">Spiderman Web-Swinger</h2>
+                    <p class="game-inst">Press spacebar or tap screen to sling a web and swing!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="spiderman-canvas" width="400" height="300"></canvas>
+                        <button id="spiderman-btn-swing" class="btn primary-btn">🕸️ Sling Web</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 11: OG Retro Snake -->
+                <div id="game-snake" class="sub-game-panel">
+                    <h2 class="game-title">OG Retro Snake</h2>
+                    <p class="game-inst">Steer the snake, eat food, and don't hit the walls!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="snake-canvas" width="300" height="300"></canvas>
+                        <div class="sim-controls" style="flex-direction:column; gap:5px; align-items:center;">
+                            <button id="snake-btn-up" class="btn secondary-btn mini-btn">▲ Up</button>
+                            <div class="steering-buttons">
+                                <button id="snake-btn-left" class="btn secondary-btn mini-btn">◀ L</button>
+                                <button id="snake-btn-right" class="btn secondary-btn mini-btn">R ▶</button>
+                            </div>
+                            <button id="snake-btn-down" class="btn secondary-btn mini-btn">▼ Down</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-game 12: Peddi Platform Jump -->
+                <div id="game-peddi" class="sub-game-panel">
+                    <h2 class="game-title">Peddi Platform Jump</h2>
+                    <p class="game-inst">Tap the JUMP button to bounce to the next platform!</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="peddi-canvas" width="400" height="320"></canvas>
+                        <button id="peddi-btn-jump" class="btn success-btn">🦘 JUMP!</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 13: Hulk Smash Challenge -->
+                <div id="game-hulk" class="sub-game-panel">
+                    <h2 class="game-title">Hulk Smash Challenge</h2>
+                    <p class="game-inst">Smash incoming concrete blocks on time! Tap SMASH or spacebar.</p>
+                    <div class="sim-gameplay-container">
+                        <canvas id="hulk-canvas" width="400" height="300"></canvas>
+                        <button id="hulk-btn-smash" class="btn danger-btn">🤢 HULK SMASH!</button>
+                    </div>
+                </div>
+
+                <!-- Sub-game 14: Unspoken Love Story Movie -->
+                <div id="game-lovevideo" class="sub-game-panel">
+                    <h2 class="game-title">Unspoken Love - Cartoon Movie</h2>
+                    <p class="game-inst">Press PLAY to watch the 5-minute college love story with simple English narration, subtitles, and romantic music!</p>
+                    
+                    <div id="lovevideo-player-container" class="video-player-container" style="display:flex; flex-direction:column; align-items:center; gap:0.8rem; width:100%; max-width:650px; transition: max-width 0.4s ease; margin: 0 auto;">
+                        <!-- Language Switcher Bar -->
+                        <div class="video-lang-bar" style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:rgba(255,255,255,0.06); padding:0.5rem 1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.15); flex-wrap:wrap;">
+                            <span style="color:#fff; font-weight:bold; font-size:0.95rem;">🗣️ Voiceover Language:</span>
+                            <button id="video-lang-te" class="btn success-btn mini-btn" style="background:var(--secondary-color); color:#000; font-weight:bold; border: 2px solid #fff;">🇮🇳 Telugu (తెలుగు)</button>
+                            <button id="video-lang-en" class="btn secondary-btn mini-btn" style="opacity:0.75;">🇬🇧 English</button>
+                        </div>
+
+                        <!-- Video Screen -->
+                        <div class="video-screen" style="position:relative; width:100%; border:3px solid var(--glass-border); border-radius:15px; overflow:hidden; background:#000; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+                            <video id="love-story-video" src="assets/love_story_telugu.mp4" style="width:100%; display:block; aspect-ratio: 16/9; object-fit:cover;" playsinline webkit-playsinline>
+                                <track id="love-story-subtitles" label="Telugu" kind="subtitles" srclang="te" src="assets/love_story_telugu.srt" default>
+                                Your browser does not support HTML5 video.
+                            </video>
+                            
+                            <!-- Custom Subtitle Display Banner -->
+                            <div id="video-subtitles-display" style="position:absolute; bottom:15px; left:5%; right:5%; background:rgba(0,0,0,0.85); color:#fff; text-align:center; padding:0.6rem 1rem; font-family:var(--font-body); font-size:1rem; line-height:1.4; border-radius:8px; border:1px solid rgba(255,255,255,0.2); pointer-events:none; transition: opacity 0.3s ease;">
+                                Press ▶ PLAY to watch the college love story in Telugu...
+                            </div>
+                        </div>
+                        
+                        <!-- Controls Bar -->
+                        <div class="video-controls-bar" style="display:flex; align-items:center; justify-content:center; gap:0.8rem; width:100%; background:rgba(255,255,255,0.07); padding:0.8rem 1.2rem; border-radius:12px; flex-wrap: wrap; border: 1px solid var(--glass-border);">
+                            <button id="video-play-btn" class="btn success-btn">▶ PLAY</button>
+                            <button id="video-stop-btn" class="btn danger-btn">🛑 STOP</button>
+                            
+                            <!-- Volume Controls -->
+                            <div style="display:flex; align-items:center; gap:6px; color:#fff; background:rgba(0,0,0,0.4); padding:4px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                                <button id="video-vol-mute" style="background:none; border:none; color:#fff; cursor:pointer; font-size:1.2rem; padding:0;">🔊</button>
+                                <button id="video-vol-down" style="background:rgba(255,255,255,0.1); border:none; color:#fff; cursor:pointer; padding:2px 6px; border-radius:4px; font-weight:bold;">-</button>
+                                <input type="range" id="video-volume-slider" min="0" max="1" step="0.05" value="0.8" style="width:70px; height:6px; cursor:pointer; accent-color: var(--secondary-color);">
+                                <button id="video-vol-up" style="background:rgba(255,255,255,0.1); border:none; color:#fff; cursor:pointer; padding:2px 6px; border-radius:4px; font-weight:bold;">+</button>
+                            </div>
+
+                            <!-- Subtitle Toggle -->
+                            <button id="video-sub-toggle" class="btn secondary-btn mini-btn" style="background:var(--secondary-color); color:#000; font-weight:bold;">💬 Subtitles: ON</button>
+
+                            <!-- Size Controls -->
+                            <button id="video-max-btn" class="btn secondary-btn mini-btn">🔍 Maximize</button>
+                            <button id="video-min-btn" class="btn secondary-btn mini-btn" style="display:none;">🔍 Minimize</button>
+                            
+                            <!-- Timeline -->
+                            <div class="timeline-container" style="display:flex; align-items:center; gap:10px; width:100%; margin-top:0.4rem;">
+                                <span class="time-label" id="video-time-cur" style="color:var(--text-muted); font-size:0.85rem; min-width:38px;">0:00</span>
+                                <input type="range" id="video-seek-slider" min="0" max="100" value="0" style="flex-grow:1; cursor:pointer; accent-color: var(--primary-color);">
+                                <span class="time-label" id="video-time-tot" style="color:var(--text-muted); font-size:0.85rem; min-width:38px;">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- GAME OVER / RESULTS MODAL -->
+    <div id="game-over-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">Game Over!</h2>
+            <div class="character-cheer">
+                <span class="modal-icon">🏆</span>
+            </div>
+            <p class="modal-msg" id="game-over-message">Superb effort! You did really well!</p>
+            <div class="results-stats">
+                <p>Final Score: <span id="final-score" class="highlight">0</span></p>
+                <p>Difficulty Played: <span id="final-diff" class="highlight">Low</span></p>
+            </div>
+            <div class="modal-actions">
+                <button id="restart-btn" class="btn primary-btn">Play Again</button>
+                <button id="modal-home-btn" class="btn secondary-btn">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOTU CHEER POPUP -->
+    <div id="motu-cheer-popup" class="cheer-popup-container">
+        <div class="cheer-popup-content">
+            <div class="cheer-avatar-box">
+                <img src="assets/motu_patlu_welcome.png" alt="Motu Cheer" class="cheer-avatar">
+            </div>
+            <div class="cheer-bubble-text">
+                <span class="cheer-title">Motu Says:</span>
+                <p id="motu-cheer-quote">"Hi-Fi! That was correct!"</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=telugu_v4"></script>
+</body>
+</html>
